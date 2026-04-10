@@ -1,0 +1,13 @@
+{
+  "name": "msk-producer",
+  "version": "1.0.0",
+  "main": "src/producer.js",
+  "scripts": {
+    "start": "node src/producer.js",
+    "build": "zip -r producer.zip src/ package.json node_modules/"
+  },
+  "dependencies": {
+    "kafkajs": "^2.2.4",
+    "@aws-sdk/client-secrets-manager": "^3.0.0"
+  }
+}

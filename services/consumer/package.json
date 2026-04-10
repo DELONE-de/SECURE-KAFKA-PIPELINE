@@ -1,0 +1,12 @@
+{
+  "name": "msk-consumer",
+  "version": "1.0.0",
+  "main": "src/handler.js",
+  "scripts": {
+    "build": "zip -r consumer.zip src/ package.json node_modules/"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.0.0",
+    "@aws-sdk/util-dynamodb": "^3.0.0"
+  }
+}
