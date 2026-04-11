@@ -1,9 +1,11 @@
-output "function_arns" {
-  description = "Map of Lambda function names to their ARNs"
-  value       = { for k, v in aws_lambda_function.this : k => v.arn }
+output "lambda_function_arn" {
+  value = aws_lambda_function.consumer.arn
 }
 
-output "function_names" {
-  description = "Map of Lambda function names"
-  value       = { for k, v in aws_lambda_function.this : k => v.function_name }
+output "lambda_function_name" {
+  value = aws_lambda_function.consumer.function_name
+}
+
+output "event_source_mapping_id" {
+  value = aws_lambda_event_source_mapping.msk.id
 }

@@ -1,35 +1,69 @@
-variable "functions" {
-  description = "Map of Lambda function names to their config (filename, env_vars)"
-  type        = map(any)
+variable "project_name" {
+  type = string
+}
+
+variable "environment" {
+  type = string
+}
+
+variable "lambda_function_name" {
+  type = string
 }
 
 variable "lambda_role_arn" {
-  description = "IAM role ARN for Lambda execution"
-  type        = string
+  type = string
 }
 
-variable "kafka_bootstrap_servers" {
-  description = "MSK bootstrap broker string"
-  type        = string
+variable "artifact_bucket" {
+  type = string
 }
 
-variable "secret_arn" {
-  description = "Secrets Manager ARN for Kafka credentials"
-  type        = string
+variable "artifact_key" {
+  type = string
 }
 
-variable "subnet_ids" {
-  description = "Subnet IDs for Lambda VPC config"
-  type        = list(string)
+variable "handler" {
+  type    = string
+  default = "src/handler.handler"
 }
 
-variable "security_group_ids" {
-  description = "Security group IDs for Lambda VPC config"
-  type        = list(string)
+variable "timeout" {
+  type    = number
+  default = 60
 }
 
-variable "tags" {
-  description = "Resource tags"
-  type        = map(string)
-  default     = {}
+variable "memory_size" {
+  type    = number
+  default = 256
+}
+
+variable "private_subnet_ids" {
+  type = list(string)
+}
+
+variable "lambda_security_group_id" {
+  type = string
+}
+
+variable "msk_cluster_arn" {
+  type = string
+}
+
+variable "kafka_topic" {
+  type    = string
+  default = "events"
+}
+
+variable "batch_size" {
+  type    = number
+  default = 100
+}
+
+variable "starting_position" {
+  type    = string
+  default = "LATEST"
+}
+
+variable "dynamodb_table_name" {
+  type = string
 }
